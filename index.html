@@ -1,40 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    
-
-    <title>Reloj Mundial</title>
-
-    <!-- Bootstrap core CSS -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>INGSOFT</title>
+	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="font-awesome.css">
+	<link rel="stylesheet" href="tabla.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="main.js"></script>
+	<script src="select.js"></script>
    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  </head>
-  <style>
-            .jumbotron
-            {
-                margin-top: 20px;
-            }
-        </style>
-<script type="text/javascript" src="jquery-2.1.4.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+</head>
+<body class="hoysi">
+	<div class="wrap">
+		<ul class="tabs">
+			
+			<li><a href="#tab1"><span class="fa fa-cog fa-fw"></span><span class="tab-text">Matriz 3x3</span></a></li>
+			<li><a href="#tab2"><span class="fa fa-align-justify"></span><span class="tab-text">Determinantes</span></a></li>
+			<li><a href="#tab3"><span class="fa fa-bookmark"></span><span class="tab-text">Calculadora</span></a></li>
+			<li><a href="#tab4"><span class="fa fa-cog fa-fw"></span><span class="tab-text">Matriz 4x4</span></a></li>
+			
+		</ul>
 
-  <body>
-    <div class="container">
-      <div class="alert alert-secondary">
-          <h1 align="center" style="color:#0066FF">Reloj Mundial</h1>    
+		<div class="secciones">
+			
+			<article id="tab1">
+			<h1 align="center" style="color:#0066FF">Ingrese</h1>
+			<br>
+			<div id="main-container">
+			<table>
+			<thead>
+				<tr>
+					<th>Intensidad 1</th>
+					<th>Intensidad 2</th>
+					<th>Intensidad 3</th>
+					<th></th>
+					<th>Igualdad</th>
+
+				</tr>
+			</thead>
+			<tr>
+						  <td><input type="number" name="1x1" id="1x1"value="0" size="7"></td>
+						  <td><input type="number" name="1x2" id="1x2"value="0" size="7"></td>
+						  <td><input type="number" name="1x3" id="1x3"value="0" size="7"></td>
+						  <th>=</th>
+						  <td><input type="number" name="x1" id="x1"value="0" size="7"></td>
+						</tr>
+
+						<tr>
+						  <td><input type="number" name="2x1" id="2x1"value="0" size="7"></td>
+						  <td><input type="number" name="2x2" id="2x2"value="0" size="7"></td>
+						  <td><input type="number" name="2x3" id="2x3"value="0" size="7"></td>
+						  <th>=</th>
+						  <td><input type="number" name="x2" id="x2"value="0" size="7"></td>
+						</tr>
+
+						<tr>
+						  <td><input type="number" name="3x1" id="3x1"value="0" size="7"></td>
+						  <td><input type="number" name="3x2" id="3x2"value="0" size="7"></td>
+						  <td><input type="number" name="3x3" id="3x3"value="0" size="7"></td>
+						  <th>=</th>
+						  <td><input type="number" name="x3" id="x3"value="0" size="7"></td>
+						</tr>
+
+			</table>
+			<br>
+			<button type="button" class="boton_1"  onclick="capturar()">Presioname we</button><br>
+<br><br>
+				<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="primera1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="primera1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="primera1x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="primeraresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="primera2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="primera2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="primera2x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="primeraresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="primera3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="primera3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="primera3x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="primeraresult3" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+
+<br>
+
+			<p class="text.justify" id=divisor1></p><br>
+<br>
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="segunda1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="segunda1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="segunda1x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="segundaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="segunda2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="segunda2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="segunda2x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="segundaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="segunda3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="segunda3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="segunda3x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="segundaresult3" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+			<br>
+	<p class="text.justify" id=cociente1></p><br>
+		<p class="text.justify" id=cociente2></p><br>
+<br>
+
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="tercera1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="tercera1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="tercera1x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="terceraresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="tercera2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="tercera2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="tercera2x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="terceraresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="tercera3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="tercera3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="tercera3x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="terceraresult3" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=divisor2></p><br>
+
+<br>
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="cuarta1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="cuarta1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="cuarta1x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="cuartaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="cuarta2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="cuarta2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="cuarta2x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="cuartaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="cuarta3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="cuarta3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="cuarta3x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="cuartaresult3" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+			<br>
+	<p class="text.justify" id=cociente3></p><br>
+		
+<br>
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="quinta1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="quinta1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="quinta1x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="quintaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="quinta2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="quinta2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="quinta2x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="quintaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="quinta3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="quinta3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="quinta3x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="quintaresult3" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=divisor3></p><br>
+
+<br>
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="sexta1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="sexta1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="sexta1x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="sextaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="sexta2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="sexta2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="sexta2x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="sextaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="sexta3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="sexta3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="sexta3x3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="sextaresult3" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+<br>
+<br>
+<br>
+<h1 align="center">Resultados</h1><br>
+<strong><i>
+<p class="text.justify" id=resultado1></p><br>
+</strong></i>
+<br>
+<br>
+<br>
+<h1 align="center">Para Intensidad 2</h1>
+<br>
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="cosa1" size="20"></p></td>
+						  <td><p class="text.justify" id="cosa2" size="20"></p></td>
+						  <td><p class="text.justify" id="cosa3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="cosaresult1" size="20"></p></td>
+						</tr>
+			</table>
+<br>
+<p class="text.justify" id=aenima1></p><br>
+<strong><i>
+<p class="text.justify" id=aenima2></p><br>
+</i></strong>
+<br>
+<br>
+<br>
+<h1 align="center">Para Intensidad 1</h1>
+<br>
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="segundacosa1" size="20"></p></td>
+						  <td><p class="text.justify" id="segundacosa2" size="20"></p></td>
+						  <td><p class="text.justify" id="segundacosa3" size="20"></p></td>
+						  <th>=</th>
+						  <td><p class="text.justify" id="segundacosaresult1" size="20"></p></td>
+						</tr>
+			</table>
+<br>
+<p class="text.justify" id=aenima3></p><br>
+
+<strong><i>
+<p class="text.justify" id=aenima4></p><br>
+</i></strong>
+
+			</div>
+						
+
+
+						
+					
+
+<script src="Matrix3x3.js">
+  
+    </script>
+
+
+
+
+
+			</article>
+
+			<article id="tab2">
+			<h1 align="center" style="color:#0066FF">Ingrese</h1><br>
+			<div id="main-container">
+			<table>
+			<thead>
+				<tr>
+					<th>X</th>
+					<th>Y</th>
+					<th>Z</th>
+					
+
+				</tr>
+			</thead>
+			<tr>
+						  <td><input type="number" name="det1x1" id="1x1"value="0" size="7"></td>
+						  <td><input type="number" name="det1x2" id="1x2"value="0" size="7"></td>
+						  <td><input type="number" name="det1x3" id="1x3"value="0" size="7"></td>
+						 
+						</tr>
+
+						<tr>
+						  <td><input type="number" name="det2x1" id="2x1"value="0" size="7"></td>
+						  <td><input type="number" name="det2x2" id="2x2"value="0" size="7"></td>
+						  <td><input type="number" name="det2x3" id="2x3"value="0" size="7"></td>
+			
+						</tr>
+
+						<tr>
+						  <td><input type="number" name="det3x1" id="3x1"value="0" size="7"></td>
+						  <td><input type="number" name="det3x2" id="3x2"value="0" size="7"></td>
+						  <td><input type="number" name="det3x3" id="3x3"value="0" size="7"></td>
+				
+						</tr>
+
+			</table>
+			<br>
+			<button type="button" class="boton_1"  onclick="determinante()">Presioname we</button><br>
+<br><br>
+
+
+
+		<table>
+
+			        <tr>
+			        	<td><p id="columna1"></p></td>
+						  <td><table>
+
+			        <tr>
+			        	  <td><p>|</p></td>
+						  <td><p id="det1"></p></td>
+						  <td><p id="det2"></p></td>
+						  <td><p>|</p></td>
+						
+						 
+					</tr>
+
+					<tr>
+						  <td><p>|</p></td>
+						  <td><p id="det3"></p></td>
+						  <td><p id="det4"></p></td>
+						  <td><p>|</p></td>
+						 
+				
+					</tr>
+
+			</table></td>
+			<td><p id="columna2"></p></td>
+						  <td><table>
+
+			        <tr>
+			        	  <td><p>|</p></td>
+						  <td><p id="det5"></p></td>
+						  <td><p id="det6"></p></td>
+						  <td><p>|</p></td>
+						
+						 
+					</tr>
+
+					<tr>
+						  <td><p>|</p></td>
+						  <td><p id="det7"></p></td>
+						  <td><p id="det8"></p></td>
+						  <td><p>|</p></td>
+						 
+				
+					</tr>
+
+			</table></td>
+					<td><p id="columna3"></p></td>
+						  <td><table>
+
+			        <tr>
+			        	  <td><p>|</p></td>
+						  <td><p id="det9"></p></td>
+						  <td><p id="det10"></p></td>
+						  <td><p>|</p></td>
+						
+						 
+					</tr>
+
+					<tr>
+						  <td><p>|</p></td>
+						  <td><p id="det11"></p></td>
+						  <td><p id="det12"></p></td>
+						  <td><p>|</p></td>
+						 
+				
+					</tr>
+
+			</table></td>	
+						 
+					
+
+			</table>
+
+
+		</div>
+<br>
+<p class="text.justify" id=stink></p>
+<i><strong>
+<p class="ahorasi" id=stink1></p><br>
+</i></strong>
+
+
+<script src="determinantes.js">
+  
+    </script>
+			</article>
+		
+
+			<article id="tab3">
+			 <div class="container">
+      <div>
+          <h1 align="center" style="color:#0066FF">Calculadora de Watts</h1>    
       </div>
       </div>
        <div class="container">
-  <div class="alert alert-secondary">
+  <div>
       
                     <p class="text-center">
-                           <b>Indicaciones </b>
-                           <br>
-                            Seleccione un país y presione el botón, luego se mostrará la hora a un lado.
-                           <br><br>
+                           <b>Selecione su configuracion</b>
+                           <br><br><br><br>
                 
 
         <div class="col-md-10 row">
@@ -42,243 +569,357 @@
           
            <form  class="col-md-8">
            <div class="form-group">
-           <label for="exampleFormControlSelect1">Paises</label>
-           <select class="form-control" id="pais">
-            
-<!--   Aqui viene la lista de todos los paises 
--->
+           <label for="exampleFormControlSelect1">CPU</label>
+           <select class="form-control" id="CPU">
+        	<option value="0">Seleccione CPU</option>
+            <option value="200">i9 9900k</option>
+            <option value="156">i7 9700k</option>
+            <option value="120">i7 8700k</option>
+            <option value="114">i7 7700k</option>
+            <option value="100">i7 6700k</option>
+            <option value="125">i7 4770k</option>
+            <option value="135">i7 3770k</option>
+            <option value="145">i7 2700k</option>
+            <option value="97">i5 9600k</option>
+            <option value="88">i5 8600k</option>
+            <option value="110">i5 7600k</option>
+            <option value="95">i5 6600k</option>
+            <option value="112">i5 4590k</option>
+            <option value="84">i3 8100</option>
+            <option value="110">i3 8350k</option>
+			<option value="101">i3 7350k</option>
+			<option value="75">i3 7100</option>
+			<option value="65">i3 6100</option>
+			<option value="90">i3 6350k</option>
 
 
-
-            <option value="0">El Salvador</option>
-            <option value="10">Afganistan</option>
-            <option value="7">Albania</option>
-            <option value="7">Alemania</option>
-            <option value="7">Argelia</option>
-            <option value="9">Arabia Saudita</option>
-            <option value="7">Andorra</option>
-            <option value="7">Angola</option>
-            <option value="2">Antigua y Barbuda</option>
-            <option value="3">Argentina</option>
-            <option value="10">Armenia</option>
-            <option value="7">Austria</option>
-              <option value="16">Australia</option>
-            <option value="10">Azerbaiyan</option>
-
-            <option value="1">Bahamas</option>
-            <option value="9">Bahrein</option>
-            <option value="12">Bangradesh</option>
-            <option value="2">Barbados</option>
-            <option value="7">Belgica</option>
-            <option value="0">Belice</option>
-            <option value="9">Bielorrusia</option>
-            <option value="7">Benin</option>
-            <option value="12">Bhutan</option>
-            <option value="7">Bosnia</option>
-            <option value="8">Botswana</option>
-            <option value="2">Bolivia</option>
-            <option value="14">Brunei</option>
-            <option value="3">Brasil</option>
-            <option value="8">Bulgaria</option>
-            <option value="6">Burkina Faso</option>
-            <option value="8">Burundi</option>
-
-            <option value="13">Camboya</option>
-            <option value="7">Camerun</option>
-            <option value="1">Canada</option>
-            <option value="5">Cabo Verde</option>
-            <option value="7">Centroafrica</option>
-            <option value="7">Chad</option>
-            <option value="14">China</option>
-            <option value="2">Chile</option>
-            <option value="1">Colombia</option>
-            <option value="9">Comoras</option>
-            <option value="7">Congo</option>
-            <option value="8">Republica del Congo</option>
-            
-            <option value="15">Corea del Norte</option>
-            <option value="15">Corea del Sur</option>
-            <option value="0">Costa Rica</option>
-            <option value="6">Costa de Marfil</option>
-            <option value="7">Croacia</option>
-            <option value="1">Cuba</option>
-            <option value="8">Chipre</option>
-            <option value="7">Rep. Checa</option>
-
-            <option value="9">Djibouti</option>
-            <option value="7">Dinamarca</option>
-            <option value="2">Dominicana</option>
-            <option value="2">Rep. Dominicana</option>
-             <option value="1">Estados Unidos</option>
-            <option value="1">Ecuador</option>
-            <option value="8">Egipto</option>
-            <option value="7">Ginea Ecuatorial</option>
-            <option value="10">Emiratos Arabes Unidos</option>
-            <option value="9">Eritrea</option>
-            <option value="7">España</option>
-            <option value="8">Estonia</option>
-            <option value="7">Eslovaquia</option>
-            <option value="8">Eslovenia</option>
-            <option value="9">Etiopia</option>
-            <option value="7">Francia</option>
-            <option value="18">Fiyi</option>
-            <option value="14">Filipinas</option>
-            <option value="8">Finlandia</option>
-
-            <option value="7">Gabon</option>
-            <option value="6">Gambia</option>
-            <option value="10">Georgia</option>
-            <option value="6">Ghana</option>
-            <option value="8">Grecia</option>
-            <option value="2">Granada</option>
-            <option value="0">Guatemala</option>
-            <option value="6">Guinea</option>
-            <option value="6">Guinea-Bissau</option>
-            <option value="2">Guayana</option>
-            <option value="1">Haiti</option>
-            <option value="0">Honduras</option>
-            <option value="7">Holanda</option>
-            <option value="14">Hong Kong</option>
-            <option value="7">Hungria</option>
-            <option value="6">Islandia</option>
-            <option value="11">India</option>
-            <option value="14">Indonesia</option>
-            <option value="9">Iran</option>
-            <option value="9">Irak</option>
-            <option value="6">Irlanda</option>
-            <option value="8">Israel</option>
-            <option value="7">Italia</option>
-            
-            <option value="1">Jamaica</option>
-            <option value="15">Japon</option>
-            <option value="8">Jordan</option>
-            <option value="11">Kazakhstan</option>
-            <option value="9">Kenia</option>
-            <option value="20">Kiribati</option>
-            <option value="9">Kuwait</option>
-            <option value="7">Kosovo</option>
-            <option value="12">Kirguistan</option>
-            <option value="13">Laos</option>
-            <option value="8">Letonia</option>
-            <option value="8">Libano</option>
-            <option value="8">Lesotho</option>
-            <option value="6">Liberia</option>
-            <option value="8">Libia</option>
-            <option value="7">Leichtenstein</option>
-            <option value="8">Lituania</option>
-            <option value="7">Luxenburgo</option>
-
-            <option value="14">Macao</option>
-            <option value="7">Macedonia</option>
-            <option value="9">Madagascar</option>
-            <option value="8">Malawi</option>
-            <option value="14">Malasia</option>
-            <option value="11">Maldivas</option>
-            <option value="6">Mali</option>
-            <option value="7">Malta</option>
-            <option value="18">Marshall</option>
-            <option value="6">Mauritania</option>
-            <option value="10">Mauricio</option>
-            <option value="0">Mexico</option>
-            <option value="16">Micronesia</option>
-            <option value="8">Moldavia</option>
-            <option value="14">Mongolia</option>
-            <option value="7">Monaco</option>
-            <option value="7">Montenegro</option>
-            <option value="6">Marruecos</option>
-            <option value="8">Mozambique</option>
-            <option value="12">Myanmr</option>
-            <option value="7">Namibia</option>
-            <option value="18">Nauru</option>
-            <option value="11">Nepal</option>
-            <option value="0">Nicaragua</option>
-            <option value="7">Niger</option>
-            <option value="7">Nigeria</option>
-            <option value="7">Noruega</option>
-            <option value="18">Nueva Zelanda</option>
-            <option value="10">Oman</option>
-            <option value="11">Pakistan</option>
-            <option value="15">Palau</option>
-            <option value="1">Panama</option>
-            <option value="2">Paraguay</option>
-            <option value="1">Peru</option>
-           
-            <option value="7">Polonia</option>
-            <option value="6">Portugal</option>
-            <option value="16">Papua Nueva Ginea</option>
-            <option value="9">Qatar</option>
-            <option value="6">Reino Unido</option>
-            <option value="8">Rumania</option>
-            <option value="9">Rusia</option>
-            <option value="8">Ruanda</option>
-            <option value="2">San Cristobal Y Nieves</option>
-            <option value="2">Santa Lucia</option>
-            <option value="2">San Vicente y las Granadinas</option>
-            <option value="19">Samoa</option>
-            <option value="7">San Marino</option>
-            <option value="7">Santo tome y Principe</option>
-            
-            <option value="6">Senegal</option>
-            <option value="7">Serbia</option>
-            <option value="10">Seychelles</option>
-            <option value="6">Sierra Leona</option>
-            <option value="14">Singapur</option>
-            <option value="17">Islas Salomon</option>
-            <option value="9">Somalia</option>
-            <option value="11">Sri Lanka</option>
-            <option value="9">Sudan</option>
-            <option value="9">Sudan del sur</option>
-            <option value="3">Suriname</option>
-            <option value="8">Swazilandia</option>
-            <option value="7">Suecia</option>
-            <option value="7">Suiza</option>
-            <option value="8">Sudafrica</option>
-            <option value="8">Siria</option>
-            <option value="14">Taiwan</option>
-            <option value="11">Tayakistan</option>
-            <option value="9">Tanzania</option>
-            <option value="13">Tailandia</option>
-            <option value="15">Timor</option>
-            <option value="6">Togo</option>
-            <option value="19">Tonga</option>
-            <option value="2">Trinidad y Tobago</option>
-            <option value="7">Tunez</option>
-            <option value="9">Turquia</option>
-            <option value="11">Turkmenistan</option>
-            <option value="18">Tuvalu</option>
-              
-             <option value="8">Ucrania</option> 
-            <option value="9">Uganda</option>
-            <option value="3">Uruguay</option>
-            <option value="11">Uzbekistan</option>
-            <option value="17">Vanuatu</option>
-            <option value="7">Vaticano</option>
-            <option value="2">Venezuela</option>
-            <option value="13">Vietnam</option>
-            <option value="9">Yemen</option>
-            <option value="8">Zambia</option>
-            <option value="8">Zimbawe</option>
-
-<!--  Aqui termina 
--->
+          
           </select>
+            <label for="exampleFormControlSelect1">Velocidad</label>
+           <select class="form-control" id="oCPU">
+			<option value="1">Selecione velocidad</option>
+            <option value="1">Stock</option>
+            <option value="1.12">~4.0Ghz</option>
+            <option value="1.2">~4.2Ghz</option>
+            <option value="1.35">~4.5Ghz</option>
+            <option value="1.55">~4.7Ghz</option>
+            <option value="1.70">~5.0Ghz</option>
+          
+          </select>
+
+
+           <label for="exampleFormControlSelect1">GPU</label>
+           <select class="form-control" id="GPU">
+        	<option value="0">Seleccione GPU</option>
+            <option value="250">GTX 1080ti</option>
+            <option value="225">GTX 1080</option>
+            <option value="200">GTX 1070ti</option>
+            <option value="180">GTX 1070</option>
+            <option value="120">GTX 1060</option>
+            <option value="100">GTX 1050ti</option>
+            <option value="75">GTX 1050</option>
+            <option value="250">GTX 980ti</option>
+            <option value="200">GTX 980</option>
+            <option value="165">GTX 970</option>
+            <option value="120">GTX 960</option>
+            <option value="75">GTX 950</option>
+            <option value="250">GTX 780ti</option>
+            <option value="225">GTX 780</option>
+            <option value="200">GTX 770</option>
+            <option value="250">RX 580</option>
+            <option value="179">RX 570</option>
+            <option value="200">RX 480</option>
+            <option value="150">RX 470</option>
+            <option value="100">RX 460</option>
+            <option value="275">R9 380</option>
+            <option value="200">R9 370</option>
+            <option value="150">R7 370</option>
+            <option value="200">RTX 2070</option>
+            <option value="230">RTX 2080</option>
+            <option value="250">RTX 2080ti</option>
+           
+          </select>
+            <label for="exampleFormControlSelect1">Overclock</label>
+           <select class="form-control" id="oGPU">
+			<option value="1">Selecione velocidad</option>
+			<option value="1">Stock</option>
+            <option value="1.12">+50</option>
+            <option value="1.20">+75</option>
+            <option value="1.25">+100</option>
+            <option value="1.35">+150</option>
+            <option value="1.68">+200</option>
+          
+          </select>
+
+
+
+           <label for="exampleFormControlSelect1">Tipo de RAM</label>
+           <select class="form-control" id="RAM">
+        	<option value="0">Seleccione Tipo</option>
+            <option value="8">DDR3</option>
+            <option value="6">DDR4</option>
+            
+          
+          </select>
+            <label for="exampleFormControlSelect1">Cantidad de modulos de RAM</label>
+           <select class="form-control" id="CRAM">
+			<option value="0">Selecione cantidad</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          
+          </select>
+
+
+           <label for="exampleFormControlSelect1">Monitor</label>
+           <select class="form-control" id="Monitor">
+        	<option value="0">Seleccione</option>
+            <option value="80">1</option>
+            <option value="160">2</option>
+            <option value="240">3</option>
+          
+          </select>
+            
           </div>
-          <button type="button" class="btn btn-primary">Seleccionar</button>
+          <button type="button" class="btn btn-primary"  onclick="enviar()">Calcular</button>
 
           </form>
           
           </div>
           <div class="conten_dare col-md-4">
-          <p class="text.justify">La hora actual es:</p>
-          <p class="text.justify" id="reloj">Aqui va la tabla con las horas </p><br><br>
-          <p class="text.justify">La hora deseada es:</p>
-          <p class="text.justify" id="reloj1">Aqui va la tabla con las horas </p>
-       
-      <p class="text.justify" id="texto">Aqui va la tabla con las horas </p>
+          	 <label for="exampleFormControlSelect1">SSD</label>
+			  <select class="form-control" id="SSD">
+        	<option value="0">Seleccione cantidad</option>
+            <option value="7">1</option>
+            <option value="14">2</option>
+            <option value="21">3</option>
+            <option value="28">4</option>
+            <option value="35">5</option>
           
+          </select>
+            <label for="exampleFormControlSelect1">HDD</label>
+           <select class="form-control" id="HDD">
+			<option value="0">Selecione cantidad</option>
+            <option value="10">1</option>
+            <option value="20">2</option>
+            <option value="30">3</option>
+            <option value="40">4</option>
+            <option value="50">5</option>
+          
+          </select>
+
+
+           <label for="exampleFormControlSelect1">Mouse/Teclado</label>
+           <select class="form-control" id="Mouse">
+        	<option value="0">Seleccione</option>
+           <option value="80">Si</option>
+            <option value="0">No</option>
+          
+          </select>
+            <label for="exampleFormControlSelect1">Lectora de DVD</label>
+           <select class="form-control" id="DVD">
+			<option value="0">Selecione</option>
+            <option value="25">Si</option>
+            <option value="0">No</option>
+            
+          </select>
+
+
+
+           <label for="exampleFormControlSelect1">Fanes</label>
+           <select class="form-control" id="Fan">
+        	<option value="0">Seleccione</option>
+            <option value="12">60mm</option>
+            <option value="24">60mm (2)</option>
+            <option value="35">60mm (3)</option>
+            <option value="16">120mm</option>
+            <option value="30">120mm (2)</option>
+            <option value="40">120mm (3)</option>
+          
+          </select>
+            <label for="exampleFormControlSelect1">Otros</label>
+           <select class="form-control" id="Otros">
+			<option value="0">Selecione</option>
+            <option value="10">Luces LED (2)</option>
+            <option value="20">Luces LED (4)</option>
+            <option value="30">Luces LED (6)</option>
+            <option value="40">Luces LED (8)</option>
+            
+          </select>
+
+
+           <label for="exampleFormControlSelect1">Horas de Uso</label>
+           <select class="form-control" id="Hora">
+        	<option value="0">Seleccione hora(s)</option>
+            <option value="1">1 Hora</option>
+            <option value="2">2 Horas</option>
+            <option value="4">4 Horas</option>
+            <option value="8">8 Horas</option>
+          	<option value="16">16 Horas</option>
+          	<option value="24">24 Horas</option>
+          </select>
+
+<br><br><br>
+
+          <div class="widget">
+      <div align="center"  class="reloj">
+      	 <p align="center"  class="text.justify" id="">Wattage en carga</p>
+        <p align="center"  class="text.justify" id="TotalPC"></p><br>
+        <p align="center"  class="text.justify" id="KH"></p><br>
+      </div>
+  </div>
+          </div>
+
+</div>
+ </div>
+
+
+<br>
+<br>
+
+   <div>
+          <h1 align="center" style="color:#0066FF">Otros electrodomesticos</h1>    
+      </div>
+      </div>
+       <div class="container">
+  <div>
+      
+                    <p class="text-center">
+                           <b>Selecione su configuracion</b>
+                           <br><br><br><br>
+                
+
+        <div class="col-md-10 row">
+          <div class="conten_izq col-md-8">
+          
+           <form  class="col-md-8">
+           <div class="form-group">
+           
+            <label for="exampleFormControlSelect1">Microondas</label>
+           <select class="form-control" id="micro">
+			<option value="0">Selecione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            
+          
+          </select>
+         
+ <label for="exampleFormControlSelect1">Refrigerador</label>
+           <select class="form-control" id="refri">
+			<option value="0">Selecione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            
+          
+          </select>
+          <label for="exampleFormControlSelect1">Lavadora</label>
+           <select class="form-control" id="lavadora">
+			<option value="0">Selecione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            
+          
+          </select>
+
+           <label for="exampleFormControlSelect1">Plancha</label>
+           <select class="form-control" id="plancha">
+			<option value="0">Selecione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            
+          
+          </select>
+          
+           <label for="exampleFormControlSelect1">Bombillas</label>
+           <select class="form-control" id="bombillas">
+        	<option value="0">Seleccione cantidad</option>
+            <option value="5">5</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          
+          </select>
+          </div>
+          <button type="button" class="btn btn-primary"  onclick="comes()">Calcular</button>
+
+          </form>
+          
+          </div>
+          <div class="conten_dare col-md-4">
+          <label for="exampleFormControlSelect1">Television</label>
+           <select class="form-control" id="Television">
+        	<option value="0">Seleccione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          
+          </select>
+            <label for="exampleFormControlSelect1">Ventilador</label>
+           <select class="form-control" id="ventilador">
+			<option value="0">Selecione</option>
+            <option value="36">Aire Acondicionado</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          
+          </select>
+
+
+           <label for="exampleFormControlSelect1">Router</label>
+           <select class="form-control" id="router">
+        	<option value="0">Seleccione</option>
+            <option value="1">1</option>
+            <option value="1">2</option>
+          </select>
+            <label for="exampleFormControlSelect1">Impresora</label>
+           <select class="form-control" id="imp">
+			<option value="0">Selecione</option>
+			<option value="1">1</option>
+            <option value="2">2</option>
+            
+          
+          </select>
+
+
+
+           <label for="exampleFormControlSelect1">Telefonos</label>
+           <select class="form-control" id="tel">
+        	<option value="0">Seleccione cantidad</option>
+            <option value="1">1</option>
+            <option value="2">1</option>
+              <option value="3">3</option>
+            <option value="4">4</option>
+            
+              <option value="5">5</option>
+            <option value="6">6</option>
+            
+            
+          
+          </select>
+            <label for="exampleFormControlSelect1">Reproductor de DVD</label>
+           <select class="form-control" id="RDVD">
+			<option value="0">Selecione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            
+          
+          </select>
+
+<div class="widget">
+      <div align="center"  class="reloj">
+      	 <p align="center"  class="text.justify" id="">Wattage total</p>
+        <p align="center"  class="text.justify" id="TotalCasa"></p><br>
+        <p align="center"  class="text.justify" id="KHcasa"></p><br>
           </div>
 </div>
  </div>
+
 
 
         <script type="text/javascript" src="bootstrap.js"></script>
@@ -286,159 +927,653 @@
         <script type="text/javascript" src="Prototype.js"></script>
 
 
-<script type="text/javascript">
-//para obtener los values
-/*
-var select = document.getElementById('pais');
-select.addEventListener('change',
-  function(){
-    var selectedOption = this.options[select.selectedIndex];
-   
-    console.log(select.value);
-    $("#texto").html(select.value);
-  });
+<script src="calculadoradewatts.js">
+  
+    </script>
+    <script src="cal.js">
+  
+    </script>
 
-*/
+			</article>
 
 
+				<article class="secciones1" id="tab4">
+<div >
+				<h1 align="center" style="color:#0066FF">Ingrese</h1>
+			<br>
+			<div>
+			<table>
+			<thead>
+				<tr>
+					<th>Intensidad 1</th>
+					<th>Intensidad 2</th>
+					<th>Intensidad 3</th>
+					<th>Intensidad 4</th>
+					<th></th>
+					<th>Igualdad</th>
+
+				</tr>
+			</thead>
+			<tr>
+						  <td><input type="number" name="m1x1" id="1x1"value="0" size="7"></td>
+						  <td><input type="number" name="m1x2" id="1x2"value="0" size="7"></td>
+						  <td><input type="number" name="m1x3" id="1x3"value="0" size="7"></td>
+						  <td><input type="number" name="m1x4" id="1x3"value="0" size="7"></td>
+						  <th>=</th>
+						  <td><input type="number" name="mx1" id="x1"value="0" size="7"></td>
+						</tr>
+
+						<tr>
+						  <td><input type="number" name="m2x1" id="2x1"value="0" size="7"></td>
+						  <td><input type="number" name="m2x2" id="2x2"value="0" size="7"></td>
+						  <td><input type="number" name="m2x3" id="2x3"value="0" size="7"></td>
+						  <td><input type="number" name="m2x4" id="2x3"value="0" size="7"></td>
+						  
+						  <th>=</th>
+						  <td><input type="number" name="mx2" id="x2"value="0" size="7"></td>
+						</tr>
+
+						<tr>
+						  <td><input type="number" name="m3x1" id="3x1"value="0" size="7"></td>
+						  <td><input type="number" name="m3x2" id="3x2"value="0" size="7"></td>
+						  <td><input type="number" name="m3x3" id="3x3"value="0" size="7"></td>
+						  <td><input type="number" name="m3x4" id="3x3"value="0" size="7"></td>
+						  
+						  <th>=</th>
+						  <td><input type="number" name="mx3" id="x3"value="0" size="7"></td>
+						</tr>
+						<tr>
+						  <td><input type="number" name="m4x1" id="3x1"value="0" size="7"></td>
+						  <td><input type="number" name="m4x2" id="3x2"value="0" size="7"></td>
+						  <td><input type="number" name="m4x3" id="3x3"value="0" size="7"></td>
+						  <td><input type="number" name="m4x4" id="3x3"value="0" size="7"></td>
+						  
+						  <th>=</th>
+						  <td><input type="number" name="mx4" id="x3"value="0" size="7"></td>
+						</tr>
+
+			</table>
+			<br>
+			<button type="button" class="boton_1"  onclick="matriz2()">Presioname we</button><br>
+<br><br>
+				<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="mprimera1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mprimeraresult1" size="20"></p></td>
+						</tr>
 
 
-function RelojDigital(){
+						<tr>
+						  <td><p class="text.justify" id="mprimera2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mprimeraresult2" size="20"></p></td>
+						</tr>
 
- 
- var Tiempo = new Date(); // funcion date de js
- var Minutos = Tiempo.getMinutes(); // etenciones sobre la variable Tiempo
- var Segundos = Tiempo.getSeconds();
- var Hora = Tiempo.getHours();
-
-//se obtiene los values
-
-var select = document.getElementById('pais');
-select.addEventListener('change',
-  function(){
-    var selectedOption = this.options[select.selectedIndex];
-   
-    console.log(select.value);
-//    $("#texto").html(select.value);
-  });
-
-
-//Para aplicar los husos horarios
-var H = parseInt(select.value);
-var Horatio = -6+H;
-
-if(Horatio > -1){
-var Huso = "UTC +" + Horatio;
-$("#texto").html(Huso);
-}
-else
-{
-var Huso = "UTC " + Horatio;
-$("#texto").html(Huso);
-
-}
-
-
-
-
-
-//se opera para el segundo reloj
- var a = parseInt(select.value);
- var b = parseInt(Tiempo.getHours());
- var c = a+b;
- 
-
-var ExtHora2; 
-
-if(c > 23){
-  var d = c-24;
-c= d;
-
- }else{ 
-  c= c;
- }
-if(c < 10){
-  c="0" + c;
- }else{ 
-  c= "" + c;
- }
-
-/*
-if(c > 12){
-  c-=12;
- }else{ 
-  c= c;
- }
- 
- if(c == 0){
-  c=12;
- }else{ 
-  c= c;
- }
-
-if(c < 12){
-  ExtHora2="AM";
-
- }else{ 
-  ExtHora2= "PM";
-
- }
-*/
-
-
- var ExtHora;
- var HoraCompleta;
- var HoraCompletacion;
- 
- if(Minutos < 10){
-  Minutos="0" + Minutos;
- }else{ 
-  Minutos= "" + Minutos;
- }
- 
- if(Segundos < 10){
-  Segundos="0" + Segundos;
- }else{ 
-  Segundos= "" + Segundos;
- }
- /*
- if(Hora < 12){
-  ExtHora="AM";
- }else{ 
-  ExtHora= "PM";
- }
- 
- if(Hora > 12){
-  Hora-=12;
- }else{ 
-  Hora= Hora;
- }
- 
- if(Hora == 0){
-  Hora=12;
- }else{ 
-  Hora= Hora;
- }
-*/
- 
- HoraCompleta = Hora + ":" + Minutos + ":" + Segundos /*+ ":" + ExtHora*/;
- $("#reloj").html(HoraCompleta);
-HoraCompletacion = c + ":" + Minutos + ":" + Segundos /*+ ":" + ExtHora2*/;
- $("#reloj1").html(HoraCompletacion);
-
-
-}
+						<tr>
+						  <td><p class="text.justify" id="mprimera3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mprimeraresult3" size="20"></p></td>
+						</tr>
+							<tr>
+						  <td><p class="text.justify" id="mprimera4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mprimera4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mprimeraresult4" size="20"></p></td>
+						</tr>
 
 
 
-//acutaliza cada segundo 
-$(document).ready(function(){
-setInterval(RelojDigital, 1000); // llama la funcion anterior cada segundo
- });
-</script>
+			</table>
 
-    
-  </body>
+<br>
+
+			<p class="text.justify" id=prom></p><br>
+<br>
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="msegunda1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msegundaresult1" size="20"></p></td>
+						</tr>
 
 
+						<tr>
+						  <td><p class="text.justify" id="msegunda2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda2x3" size="20"></p></td>
+						<td><p class="text.justify" id="msegunda2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msegundaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="msegunda3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msegundaresult3" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="msegunda4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msegunda4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msegundaresult4" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+			<br>
+	<p class="text.justify" id=prom2></p><br>
+		<p class="text.justify" id=prom3></p><br>
+		<p class="text.justify" id=prom4></p><br>
+<br>
+
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="mtercera1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mterceraresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="mtercera2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mterceraresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="mtercera3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mterceraresult3" size="20"></p></td>
+						</tr>
+							<tr>
+						  <td><p class="text.justify" id="mtercera4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mtercera4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mterceraresult4" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=prom5></p><br>
+
+<br>
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="mcuarta1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mcuartaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="mcuarta2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mcuartaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="mcuarta3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mcuartaresult3" size="20"></p></td>
+						</tr>
+						<tr>
+						  <td><p class="text.justify" id="mcuarta4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mcuarta4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mcuartaresult4" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+			<br>
+			<p class="text.justify" id=sebas></p><br>
+	<p class="text.justify" id=prom6></p><br>
+	<p class="text.justify" id=prom7></p><br>
+		
+<br>
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="mquinta1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mquintaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="mquinta2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mquintaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="mquinta3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mquintaresult3" size="20"></p></td>
+						</tr>
+						<tr>
+						  <td><p class="text.justify" id="mquinta4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mquinta4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mquintaresult4" size="20"></p></td>
+						</tr>
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=prom8></p><br>
+
+<br>
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="msexta1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msextaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="msexta2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msextaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="msexta3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msextaresult3" size="20"></p></td>
+						</tr>
+						<tr>
+						  <td><p class="text.justify" id="msexta4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="msexta4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="msextaresult4" size="20"></p></td>
+						</tr>
+
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=sebas3></p><br>
+<p class="text.justify" id=sebas2></p><br>
+<p class="text.justify" id=prom9></p><br>
+<br>
+
+
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="mseptima1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mseptimaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="mseptima2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mseptimaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="mseptima3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mseptimaresult3" size="20"></p></td>
+						</tr>
+						<tr>
+						  <td><p class="text.justify" id="mseptima4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mseptima4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mseptimaresult4" size="20"></p></td>
+						</tr>
+
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=prom10></p><br>
+<br>
+
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="moctava1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="moctavaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="moctava2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="moctavaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="moctava3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="moctavaresult3" size="20"></p></td>
+						</tr>
+						<tr>
+						  <td><p class="text.justify" id="moctava4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="moctava4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="moctavaresult4" size="20"></p></td>
+						</tr>
+
+
+
+
+			</table>
+<br>
+<p class="text.justify" id=prom11></p><br>
+<br>
+<table>
+					<thead>
+				<tr>
+					<th>I 1</th>
+					<th>I 2</th>
+					<th>I 3</th>
+					<th>I 4</th>
+					<th></th>
+					<th>Igual</th>
+
+				</tr>
+			</thead>
+					<tr>
+						  <td><p class="text.justify" id="mnovena1x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena1x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena1x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena1x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mnovenaresult1" size="20"></p></td>
+						</tr>
+
+
+						<tr>
+						  <td><p class="text.justify" id="mnovena2x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena2x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena2x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena2x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mnovenaresult2" size="20"></p></td>
+						</tr>
+
+						<tr>
+						  <td><p class="text.justify" id="mnovena3x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena3x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena3x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena3x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mnovenaresult3" size="20"></p></td>
+						</tr>
+						<tr>
+						  <td><p class="text.justify" id="mnovena4x1" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena4x2" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena4x3" size="20"></p></td>
+						  <td><p class="text.justify" id="mnovena4x4" size="20"></p></td>
+						  
+						  <th>=</th>
+						  <td><p class="text.justify" id="mnovenaresult4" size="20"></p></td>
+						</tr>
+
+
+
+
+			</table>
+
+
+
+
+<br>
+
+<strong><i>
+<p class="text.justify" id=ress></p><br>
+<p class="text.justify" id=ress1></p><br>
+<p class="text.justify" id=ress2></p><br>
+<p class="text.justify" id=ress3></p><br>
+</strong></i>
+<br>
+<br>
+<br>
+						
+<script src="Matrix4x4.js">
+  
+    </script>
+
+
+</div>
+
+			</article>
+
+
+
+			
+		</div>
+	</div>
+</body>
 </html>

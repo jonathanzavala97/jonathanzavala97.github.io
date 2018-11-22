@@ -1,0 +1,145 @@
+
+body{
+	font-family: Arial;
+}
+
+#main-container{
+	width: 700px;
+    
+}
+
+#main-container2{
+    width: 300px;
+    
+}
+
+.main-container2{
+    width: 700px;
+    
+}
+
+
+
+
+
+.main{
+    width: 100px;
+    
+}
+
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 75%;
+}
+
+.tabledet{
+    background-color: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 65%;
+}
+
+
+
+th, td{
+	padding: 6px;
+}
+
+thead{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+.tr{
+
+     width: 15%;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td{
+	background-color: #0F362D;
+	
+}
+
+ .boton_1{
+    text-decoration: none;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: helvetica;
+    font-weight: 300;
+    font-size: 15px;
+    font-style: italic;
+    color: #ffffff;
+    background-color: #246355;
+    border-radius: 15px;
+    border: 3px double #0F362D;
+  }
+  .boton_1:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+
+.three-columns {
+    
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    
+    -webkit-column-gap: 20px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 20px; /* Firefox */
+    column-gap: 20px;
+    
+    -webkit-column-gap: 2rem; /* Chrome, Safari, Opera */
+    -moz-column-gap: 2rem; /* Firefox */
+    column-gap: 2rem;
+    
+}
+
+.widget {
+    width: 40%;
+    margin: 2em;
+    /*margin:32px; */
+}
+
+.widget p {
+    display: inline-block;
+    line-height: 1em;
+}
+
+.fecha {
+    font-family: Oswald, Arial;
+    text-align: center;
+    font-size:1.5em;
+    margin-bottom: 0.3125rem;
+    /*margin-bottom: 5px;*/
+    background: #819FF7;
+    padding: 20px;
+    width: 300%;
+}
+
+.reloj {
+    font-family: Oswald, Arial;
+    width: 400%;
+    height: 135px;
+    padding: 20px;
+    font-size: 2em;
+    text-align: center;
+    background: #819FF7;
+}
+
+.reloj .caja-segundos {
+    display: inline-block;
+}
+
+.reloj .segundos,
+.reloj .ampm {
+    font-size: 2rem;
+    display: block;
+}
