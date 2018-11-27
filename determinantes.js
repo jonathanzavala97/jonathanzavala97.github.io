@@ -101,3 +101,43 @@ $("#stink1").html(comentario);
 
   
   }
+
+
+
+   function determinante1(){
+        var svalor11=document.getElementsByName("mdet1x1")[0].value;
+        var svalor12=document.getElementsByName("mdet1x2")[0].value;
+        var svalor21=document.getElementsByName("mdet2x1")[0].value;
+        var svalor22=document.getElementsByName("mdet2x2")[0].value;
+
+        var scc1= parseFloat(svalor11);
+        var scc2= parseFloat(svalor12);
+        var scc3= parseFloat(svalor21);
+        var scc4= parseFloat(svalor22);
+
+        var sd1c1=scc1-1+1;
+        var sd1c2=scc2-1+1;
+        var sd2c1=scc3-1+1;
+        var sd2c2=scc4-1+1;
+ 
+    $("#mdet1").html(sd1c1);
+    $("#mdet2").html(sd1c2);
+    $("#mdet3").html(sd2c1);
+    $("#mdet4").html(sd2c2);
+
+var mecuacion="det A = ( "+ sd1c1+" ) ( " +sd2c2+" ) - ( "+sd2c1+" ) ( "+sd1c2+ " )";
+$("#mstink").html(mecuacion);
+
+var msub1=sd1c1*sd2c2;
+var msub2=sd2c1*sd1c2;
+var msub3=msub1-msub2;
+
+
+var mcomentario="El determinate de la matriz es " +msub3;
+
+$("#mstink1").html(mcomentario);
+
+
+
+
+}
